@@ -1,32 +1,40 @@
-# Pressure Vessel Stress Analysis (FEA)
+# Pressure Vessel Static Structural Analysis
 
-This project performs a static structural analysis on a pressure vessel to evaluate its integrity under operational loads, following standard engineering practices and ASME guidelines.
+This project presents a comprehensive finite element analysis (FEA) of a pressure vessel performed using **Ansys Workbench**. The analysis focuses on stress distribution and structural integrity under operational conditions.
 
 ## Project Overview
-The primary objective of this study is to determine the stress distribution and total deformation of the pressure vessel when subjected to internal pressure and gravity loads.
+The main goal of this analysis is to evaluate the mechanical behavior of a pressure vessel under internal pressure and gravitational loads, ensuring the design adheres to structural safety limits.
 
-## Methodology
-- **CAD Modeling:** The pressure vessel was designed in **SolidWorks**, including nozzles, lifting lugs, and supporting saddles.
-- **Finite Element Analysis (FEA):** Conducted in **Ansys Workbench**.
-- **Meshing:** Implemented `Mesh Refinement` at critical areas, such as nozzle-to-shell connections and supports, to ensure accurate stress concentration capture.
-- **Boundary Conditions:**
-    - Internal Pressure: 10 MPa.
-    - Gravity Load: `Standard Earth Gravity` to account for self-weight.
-    - Supports: `Fixed Support` applied to the saddles to simulate real-world installation conditions.
+## Analysis Steps
 
-## Results
-The analysis highlights the stress concentration areas and total deformation of the vessel.
+### 1. Geometry Modeling
+The pressure vessel was modeled in **SolidWorks**, including the main cylindrical shell, heads, nozzles, and support saddles to simulate real-world conditions.
+![Geometry Model](images/geometry1.png)
+
+### 2. Meshing & Refinement
+To ensure accuracy, a structured mesh was generated. We applied **Mesh Refinement** at critical locations—specifically at the nozzle-to-shell connections and saddle-support areas—where stress concentrations are expected.
+![Mesh Model](images/mesh.png)
+
+### 3. Boundary Conditions
+- **Internal Pressure:** 20 MPa, applied to the inner surfaces.
+- **Gravity Load:** `Standard Earth Gravity` (9806.6 mm/s²) applied to account for the dead weight of the vessel.
+- **Supports:** `Fixed Support` was applied to the saddle base plates to simulate the foundation connection.
+- **Displacement:** A free-movement boundary condition was applied in the axial (X) direction on one of the flanges to allow for pressure-induced expansion.
+
+## Results & Post-Processing
 
 ### Total Deformation
+The deformation analysis confirms the structural displacement under maximum pressure.
 ![Total Deformation](images/total_deformation.png)
 
 ### Equivalent (Von-Mises) Stress
-![Equivalent Stress](images/equivalent_stress.png)
+The stress distribution analysis identifies areas of high stress concentration.
+![Equivalent Stress](images/equvalent_stress.png)
 
 ## Technical Highlights
-- **Validation:** Results were validated by comparing Ansys outputs with theoretical stress calculations (Hoop and Longitudinal stresses).
-- **Refinement:** Performed mesh refinement to optimize the balance between computational cost and result accuracy.
-- **Safety Assessment:** The maximum stress values were evaluated against the material's yield strength to ensure the design is within safe limits.
+- **Theoretical Validation:** The numerical results obtained from Ansys were compared with classical stress formulas (Hoop & Longitudinal stress) to ensure the validity of the FEA model.
+- **Mesh Optimization:** By using Mesh Refinement, the solution accuracy in critical regions was significantly improved without unnecessary increase in computational time.
+- **Safety Margin:** The maximum equivalent stress was compared against the material's yield strength, confirming that the design remains within the elastic region.
 
 ---
-*Created by: Elnaz Keshtkar*
+*Project conducted by: Elnaz Keshtkar*
